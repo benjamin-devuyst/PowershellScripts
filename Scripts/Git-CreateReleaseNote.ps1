@@ -1,5 +1,8 @@
 param ([string]$from, [string]$to, [bool]$interpretFromAsTagFilter)
 
+# Origin : https://github.com/foxrough/PowershellScripts/
+# Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
+
 function DisplayDoc(){
     Write-Host This script allow to extract merges that occurs on current branch between the two git commits.
     Write-Host To use it, you must call .\CreateReleaseNote.ps1 -from xxx -to yyy
