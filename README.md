@@ -13,7 +13,7 @@ The output format is 'sha date branchName'
    
 2. Auto detect the argument 'from' from a regular expression.  
 This will extract merges between a 'from' that match a regular expression and current Head.  
-.\CreateReleaseNote.ps1 -from "CI-Auto-.+" -interpretFromAsTagFilter $true  
+.\CreateReleaseNote.ps1 -from "CI-Auto-.+" -interpretFromAsRegex $true  
 **Remark** : Here, the tag's regular expression matches "CI-AUTO-.+", that means 'CI-Auto' followed by one or multiple char(s)
 
 ### Use case

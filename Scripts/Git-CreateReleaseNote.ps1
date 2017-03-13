@@ -1,4 +1,4 @@
-param ([string]$from, [string]$to, [bool]$interpretFromAsTagFilter)
+param ([string]$from, [string]$to, [bool]$interpretFromAsRegex)
 
 # Origin : https://github.com/foxrough/PowershellScripts/
 # Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
@@ -10,7 +10,7 @@ function DisplayDoc(){
     Write-Host Arguments :
     Write-Host " -from   [Required] identify either a sha or a tag (or regex)"
     Write-Host " -to     [Optional] identify either a sha or a tag, if empty : HEAD"
-    Write-Host " -interpretFromAsTagFilter [Optional] if true : interpret -from as regex to found last tag"
+    Write-Host " -interpretFromAsRegex [Optional] if true : interpret -from as regex to found last tag"
     Write-Host "  this last arg need that tags are flagged as Annotated"
 }
 
@@ -24,19 +24,18 @@ function ExtractMerges(){
 }
 
 function InterpretFromArg (){
-    $from=git for-each-ref --sort=-taggerdate | 
-    ForEach-Object { Select-string -InputObject $($_) -Pattern "$($from)" } |  
-    ForEach-Object { $_.Matches } | ForEach-Object { "$($_.Groups["Tag"])" } | 
-    Select-Object $_ -First 1
-    return $from;
+    $result = git tag --sort=-taggerdate | 
+            where { $_ -match $from } |
+            Select-Object $_ -First 1
+    return $result;
 }
 
-if($to -eq $false){
+if([string]::IsNullOrEmpty($to)){
     $to = "HEAD";
 }
 
 if($from -and $to){
-    if($interpretFromAsTagFilter){
+    if($interpretFromAsRegex){
         $regex=$from;
         $from=InterpretFromArg;
         Write-Host Interpret from regex $($regex) - Found From Tag : $from
