@@ -2,7 +2,11 @@
     [Parameter(Mandatory=$true)]
     [System.IO.FileInfo]$solutionPath
     )
-    
+
+# Origin : https://github.com/foxrough/PowershellScripts/
+# Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
+
+
 # Analyzes a csproj file in order to find the real output assembly's name
 function Get-ProjectAssemblyName {
     param(

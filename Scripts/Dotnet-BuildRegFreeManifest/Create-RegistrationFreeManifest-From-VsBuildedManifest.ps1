@@ -9,6 +9,9 @@ param(
     [ValidatePattern("^[\w-]+\.exe.manifest")]
     [string]$appManifestFileName)
 
+# Origin : https://github.com/foxrough/PowershellScripts/
+# Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
+
 # params
 $folder = $binariesFolder; #[System.IO.DirectoryInfo]"E:\repos\regfree\G2Interface\GEF2\Bin";
 $assemblies = $assembliesWithinComInside -split ";";

@@ -1,3 +1,7 @@
+# Origin : https://github.com/foxrough/PowershellScripts/
+# Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
+
+
 $binariesFolder = "C:\WK\SolutionRoot\PathToSolutionBinOutput\Bin";
 $solutionPath = "C:\WK\SolutionRoot\MySolution.sln";
 $appManifestFileName = "MainApp.exe.manifest";
