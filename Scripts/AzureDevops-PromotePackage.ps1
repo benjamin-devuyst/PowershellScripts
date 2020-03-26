@@ -6,6 +6,9 @@ param(
         [Parameter(Mandatory=$True)][string]$promotedQuality
     )
 
+# Origin : https://github.com/foxrough/PowershellScripts/
+# Licence : MIT - https://github.com/foxrough/PowershellScripts/blob/master/LICENSE
+
 function Get-FeedMetadata{
     param(
         [Parameter(Mandatory=$True)][string]$projectUrl,
