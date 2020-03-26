@@ -1,6 +1,6 @@
 # PowershellScripts
 
-## Create Release Note Powershell Script
+## Create Release Note Powershell Script - Git-CreateReleaseNote.ps1
 
 This script allows you to extract all branch names that were merged between two commits.
 The output format is 'sha date branchName'
